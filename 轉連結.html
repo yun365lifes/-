@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>我的蝦皮推廣連結轉換器</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; max-width: 500px; margin: auto; }
+        textarea { width: 100%; height: 100px; margin-bottom: 10px; }
+        button { width: 100%; padding: 10px; background-color: #ee4d2d; color: white; border: none; cursor: pointer; }
+        #result { margin-top: 20px; padding: 10px; background: #f9f9f9; border: 1px solid #ddd; word-break: break-all; }
+    </style>
+</head>
+<body>
+    <h2>蝦皮推廣連結轉換器</h2>
+    <p>請輸入原始蝦皮商品網址：</p>
+    <textarea id="inputUrl" placeholder="請貼上網址..."></textarea>
+    <button onclick="convertUrl()">自動轉換連結</button>
+    
+    <div id="result" style="display:none;">
+        <strong>轉換後的連結：</strong><br>
+        <a id="outputLink" href="#" target="_blank">點我前往</a>
+    </div>
+
+    <script>
+        function convertUrl() {
+            var rawUrl = document.getElementById('inputUrl').value.trim();
+            if(!rawUrl) { alert('請輸入網址！'); return; }
+            
+            // 替換成你自己在蝦皮分潤後台拿到的推廣帳號或參數
+            var myAffiliateId = "16375700021"; 
+            
+            // 這裡是以最簡單的網址參數疊加為例（實際格式依蝦皮規範調整）
+            // 大部分標準做法是將原始網址轉成網址編碼(Encode)後，拼接到官方的分潤轉址開頭
+            var convertedUrl = "https://goshopo.me/affiliate?url=" + encodeURIComponent(rawUrl) + "&sub_id=" + myAffiliateId;
+            
+            document.getElementById('outputLink').href = convertedUrl;
+            document.getElementById('outputLink').innerText = convertedUrl;
+            document.getElementById('result').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
