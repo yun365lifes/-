@@ -31,7 +31,7 @@
             
             // 這裡是以最簡單的網址參數疊加為例（實際格式依蝦皮規範調整）
             // 大部分標準做法是將原始網址轉成網址編碼(Encode)後，拼接到官方的分潤轉址開頭
-            var convertedUrl = "https://goshopo.me/affiliate?url=" + encodeURIComponent(rawUrl) + "&sub_id=" + myAffiliateId;
+            var convertedUrl = "https://s.shopee.tw" + encodeURIComponent(rawUrl) + "&sub_id=" + myAffiliateId;
             
             document.getElementById('outputLink').href = convertedUrl;
             document.getElementById('outputLink').innerText = convertedUrl;
